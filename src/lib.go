@@ -149,15 +149,14 @@ func convertVerion(versionArray []string) ([]uint, error) {
 
 func shouldUpdate(local, latest []uint) (bool, error) {
 	if len(local) != len(latest) {
-		return false, fmt.Errorf("length of the array must be same")
+		return false, fmt.Errorf("cannot be compair local and latest go version")
 	}
 
 	for idx, value := range latest {
-		if local[idx] > value {
+		if local[idx] >= value {
 			return false, nil
 		}
 		if value > local[idx] {
-			fmt.Println(local[idx], value)
 			return true, nil
 		}
 	}
