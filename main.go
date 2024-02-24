@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/v3nkat3shk/goup/src"
@@ -24,5 +23,7 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
-	fmt.Println(updateAble)
+	if updateAble != false {
+		versions.DownloadLatestVersion()
+	}
 }
